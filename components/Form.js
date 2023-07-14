@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { StyledButton } from "./StyledButton.js";
+import Router from "next/router.js";
+import editPlace from "@/pages/api/places/[id]/edit.js";
 
 const FormContainer = styled.form`
   display: grid;
@@ -30,6 +32,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     onSubmit(data);
+    Router.push("/");
   }
 
   return (
